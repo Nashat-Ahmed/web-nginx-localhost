@@ -5,6 +5,15 @@
     - vars.yaml
 
   tasks:
+    - name: clonning the repo
+      command: git clone https://github.com/Nashat-Ahmed/web-nginx-localhost.git
+      register: clonning_result
+      ignore_errors: yes
+
+    - name: log clon result
+      debug:
+        var: clonning_result
+
     - name: build new image
       command: docker build -t nashaat111/project-app .
       register: build_result
@@ -15,7 +24,7 @@
         var: build_result
 
     - name: run the container
-      command: docker run -d nashaat111/project-app
+      command: docker run -d -p 80:80 nashaat111/project-app
       register: running_result
       ignore_errors: yes
 
