@@ -14,8 +14,16 @@
       debug:
         var: clonning_result
 
+    - name: Stop all running containers
+      shell: docker stop $(docker ps -q)
+      ignore_errors: yes
+
+    - name: Remove all containers (stopped and running)
+      shell: docker rm $(docker ps -aq)
+      ignore_errors: yes
+  
     - name: build new image
-      command: docker build -t nashaat111/project-app .
+      command: docker build -t nashaat111/project-app ~/web-nginx-localhost/
       register: build_result
       ignore_errors: yes
 
@@ -23,21 +31,21 @@
       debug:
         var: build_result
 
-    - name: run the container
-      command: docker run -d -p 80:80 nashaat111/project-app
+    - name: Run the container
+      command: docker run -d --name project-app -p 80:80 nashaat111/project-app
       register: running_result
       ignore_errors: yes
 
     - name: Log running Result
       debug:
         var: running_result
-
+        
     - name: login to DockerHub 
       docker_login:
-       username: "{{ dockerhub_username }}"
-       password: "{{ dockerhub_password }}"
-       registry: https://index.docker.io/v1/
-       reauthorize: yes
+        username: "{{ dockerhub_username }}"
+        password: "{{ dockerhub_password }}"
+        registry: https://index.docker.io/v1/
+        reauthorize: yes
 
     - name: pushing the image to DockerHub
       command: docker push nashaat111/project-app
