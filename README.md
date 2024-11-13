@@ -46,13 +46,13 @@ The web app includes:
 - docker run -d -p 80:80 web-nginx-localhost
 
 ### Ansible Deployment:
-1- Configure inventory with your server details.
-2- Run the playbook:
+1. Configure inventory with your server details.
+2. Run the playbook:
  - ansible-playbook -i inventory ansible-playbook.yaml
 
 ### Kubernetes Deployment:
-1- Ensure your cluster is set up.
-2- Apply configurations:
+1. Ensure your cluster is set up.  
+2. Apply configurations:
  - kubectl apply -f k8s/
 
 ## Jenkins Pipeline
