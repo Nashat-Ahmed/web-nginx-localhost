@@ -57,3 +57,6 @@ The web app includes:
 
 ## Jenkins Pipeline
 The Jenkins pipeline (Jenkinsfile) builds the Docker image, runs tests, and deploys the application on AWS (EC2 instance) Using Ansible-playbook. 
+
+### Accessing the application website on browser
+- localhost:80
