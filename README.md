@@ -1,6 +1,6 @@
 # Web Nginx Localhost Project
 
-This project is a web application designed for local hosting with Nginx, featuring multiple HTML pages, assets, and configuration files. It supports containerized deployment with Docker, orchestration with Kubernetes, and automated deployment through Ansible and Jenkins.
+This project is a educational platform (web application) designed for local hosting with Nginx, featuring multiple HTML pages, assets, and configuration files. It supports containerized deployment with Docker, orchestration with Kubernetes, and automated deployment through Ansible and Jenkins.
 
 ## Project Structure
 
